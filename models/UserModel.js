@@ -43,13 +43,13 @@ UserSchema.pre("save", async function (next) {
 
 UserSchema.methods.generateAuthTokens = async function () {
     const access_token = jwt.sign({ id: this._id }, process.env.JWT_SECRET, {
-        expiresIn: "5m",
+        expiresIn: "5h",
     });
     const refresh_token = jwt.sign(
         { id: this._id },
         process.env.REFRESH_SECRET,
         {
-            expiresIn: "1h",
+            expiresIn: "1d",
         }
     );
 
