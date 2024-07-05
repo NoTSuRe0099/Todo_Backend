@@ -14,18 +14,18 @@ var router = express.Router();
 /* GET home page. */
 router.get("/", (req, res) => res.send("<h1> Welcome To Todos API</h1>"));
 
-router.get("/todos", isAuthenticated, getTodos);
+router.get("/todos", getTodos);
 
-router.post("/todos", isAuthenticated, createTodo);
+router.post("/todos", createTodo);
 
-router.get("/todos/:id", isAuthenticated, getTodo);
+router.get("/todos/:id", getTodo);
 
-router.delete("/todos/:id", isAuthenticated, deleteTodo);
+router.delete("/todos/:id", deleteTodo);
 
-router.put("/todos/:id", isAuthenticated, updateTodo);
+router.put("/todos/:id", updateTodo);
 
-router.delete("/logout", isAuthenticated, LogoutUser);
+router.delete("/logout", LogoutUser);
 
-router.get('/isCompleted/:id', isAuthenticated, toggleCompleted);
+router.get('/isCompleted/:id', toggleCompleted);
 
 module.exports = router;
